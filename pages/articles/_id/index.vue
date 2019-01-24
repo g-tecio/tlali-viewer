@@ -1,54 +1,29 @@
-
 <template>
-
   <section class="single-article">
-        <script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/vue-resize-text"></script>
-
-       <p id="txti">Tlali</p>
-        <div  class="imagenes" >
-         <img  src="@/assets/fb.png" class="imgfb">
-         <img src="@/assets/twi.jpg" class="imgtwi">
-        </div>
-      <hr id="hr1">
-      <br>
-      <br>
-    
-        <br>
+    <h1>Editor</h1>
+    <!-- Form to show and edit article data -->
     <form>
-      
-      
       <h2>ID:</h2>
-      <p> {{articlesData.ID}}</p>
-      
+      <input type="text" id="id" v-bind:value="articlesData.ID">
       <h2>Título:</h2>
-      <p> {{articlesData.ARTICLE.Title}}</p>
-     
+      <input type="text" id="title" v-bind:value="articlesData.ARTICLE.Title">
       <h2>Autor:</h2>
-      <p> {{articlesData.ARTICLE.Author}}</p>
-      <p> {{articlesData.IMG.Author}}</p>
-      
+      <input type="text" id="author" v-bind:value="articlesData.ARTICLE.Author">
       <h2>Fecha:</h2>
-      <p> {{articlesData.ARTICLE.DT}}</p>
-      <p> {{articlesData.IMG.DT}}</p>
-     
+      <input type="text" id="date" v-bind:value="articlesData.ARTICLE.DT">
       <h2>Localización</h2>
-      <p> {{articlesData.ARTICLE.Location}}</p>
-      <p> {{articlesData.IMG.Location}}</p>
-      
+      <input type="text" id="location" v-bind:value="articlesData.ARTICLE.Location">
       <h2>Estado de publicación:</h2>
-      <p> {{articlesData.ARTICLE.PublishStatus}}</p>
-      
+      <input type="text" id="status" v-bind:value="articlesData.ARTICLE.PublishStatus">
       <h2>Sección:</h2>
-      <p> {{articlesData.ARTICLE.Section}}</p>
-      
+      <input type="text" id="section" v-bind:value="articlesData.ARTICLE.Section">
       <h2>Etiquetas:</h2>
-      <p> {{articlesData.ARTICLE.Tags}}</p>
-      
+      <input type="text" id="tags" v-bind:value="articlesData.ARTICLE.Tags">
       <h2>Contenido:</h2>
-      <p> {{articlesData.ARTICLE.Content}}</p>
-      
+      <textarea id="content" v-bind:value="articlesData.ARTICLE.Content" rows="4" cols="50"></textarea>
       <br>
+      <!-- Button to update changes -->
+      <input type="button" id="submit" v-on:click="updateInfo()" value="Actualizar">
     </form>
   </section>
 </template>
@@ -95,7 +70,7 @@ export default {
           Author: "Test Author",
           DT: "Date Test",
           Location: "Location Test",
-          S3DIR: "Test dir"
+          "S3-DIR": "Test dir"
         }
       };
       return articleData;
@@ -115,9 +90,9 @@ export default {
 </script>
 
 <style scoped>
-/* #submit {
+#submit {
   background-color: rgb(230, 230, 230);
-} */
+}
 
 h1 {
   text-align: center;
@@ -125,68 +100,19 @@ h1 {
 }
 
 h2 {
-  color: black;
-  font-weight: bold;
   font-size: 14px;
   margin-block-start: 2px;
   margin-block-end: 2px;
 }
 
 form {
-  
-  box-sizing: border-box;
-  text-align: center;
-  border: 2px solid slategray;
-  margin: 20px;
-  align-self: auto;
-  width: auto;
-  font-family: 'Lucida Sans';
-  color: grey;
-
-
-}
-.single-article{
-    padding: 30px;
-  display: flex;
-  flex-flow: row wrap;
-  margin-left: 400px;
-  width: 50%;
-}
-#hr1 {
-  height: 10px;
-  margin: 0 20px;
-  background-color:red;
-  border: none;
-  /* height: 10px; */
-  width: 100%;
-  
-}
-#txti{
-color: midnightblue;
-padding: 15px;
-margin: 20px;
-font-size: 27px;
-align-content: center;
-font-weight: bold;
+  padding: 10px;
+  display: block;
+  margin: auto;
+  width: 500px;
 }
 
-.imagenes{
-  margin-left: 750px;
-  display: flex;
-}
-
-.imgfb{
-  width: 18;
-  height: 30px;
-}
-
-.imgtwi{
-  
-  width: 30;
-  height: 30px; 
-}
-
-/* input,
+input,
 textarea {
   box-sizing: border-box;
   border: 1px solid #cccccc;
@@ -195,6 +121,5 @@ textarea {
   width: 500px;
   margin-block-start: 2px;
   margin-block-end: 2px;
-} */
-
+}
 </style>
